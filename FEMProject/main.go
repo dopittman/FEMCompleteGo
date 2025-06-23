@@ -21,6 +21,7 @@ func main() {
 		// panic is a "s*^t has hit the fan" error and should be used for when the app should crash when hitting this error basically
 		panic(err)
 	}
+	defer app.DB.Close()
 
 	// Pass HealthCheck as a first class citizen and setup route
 	r := routes.SetupRoutes(app)
